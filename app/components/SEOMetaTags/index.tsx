@@ -38,6 +38,8 @@ export const SEOMetaTags = ({
         <meta name="keywords" content={keywords} key="defaultKeywords" />
       )}
 
+      <meta name="og:type" content="product" />
+
       {/* FACEBOOK META-TAGS */}
       <meta property="og:type" content="website" key="defaultWebsite" />
       <meta

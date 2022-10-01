@@ -57,6 +57,7 @@ export const DeadlinesSection = () => {
 
     let currentTMGHeight = Number(currentHeight);
     let lastHeightFromTMG = Number(forgedTokenCurrentBlock);
+    let greyRow = false;
     let updateHeight = false;
 
     return data
@@ -74,6 +75,7 @@ export const DeadlinesSection = () => {
         if (updateHeight && height < Number(lastHeightFromTMG)) {
           currentTMGHeight--;
           updateHeight = false;
+          greyRow = !greyRow;
         }
 
         const tmgHeight = currentTMGHeight;
@@ -105,6 +107,7 @@ export const DeadlinesSection = () => {
             intensity,
             deadline,
             isDeadlineOwner,
+            greyRow,
           };
         }
       })
@@ -155,15 +158,19 @@ export const DeadlinesSection = () => {
                   intensity,
                   deadline,
                   isDeadlineOwner,
+                  greyRow,
                 } = transaction;
 
                 return (
                   <TableRow
                     key={transaction.txId}
                     sx={{
+                      backgroundColor: greyRow
+                        ? "rgba(0,0,0,0.1)"
+                        : "rgba(255,255,255,1)",
                       "&:last-child td, &:last-child th": { border: 0 },
                       "&:hover": {
-                        backgroundColor: "rgba(0,0,0,0.1)",
+                        backgroundColor: "rgba(0,0,0,0.15)",
                       },
                     }}
                   >

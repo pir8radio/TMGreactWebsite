@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { Fragment, FC, ReactNode, useEffect } from "react";
 import { SEOMetaTags } from "@/app/components/SEOMetaTags";
+import { config } from "@/app/contexts/AppContext";
 import { AppInitializer } from "../AppInitializer";
 import { Header } from "./Header";
 import { Sidebar } from "./Sidebar";
@@ -46,6 +47,8 @@ const Layout: FC<{ children: ReactNode }> = ({ children }) => {
         title="The Mining Game"
         description="A competition game where the contract that sends the best deadline wins a TMG token 😀"
         keywords="Mining Game, Signum Blockchain, Smart Contracts"
+        imgUrl={config.CanonicalUrl + "/TMG_OG.jpg"}
+        canonical={config.CanonicalUrl + router.asPath}
       />
 
       <Header />
