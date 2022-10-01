@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+/* Nprogress custom styling */
+#nprogress .bar {
+  background: #e5756e !important;
+  height: 4px !important;
+  z-index: 2000 !important;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

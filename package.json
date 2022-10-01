@@ -1,0 +1,50 @@
+{
+  "name": "tmg-website",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "@emotion/server": "^11.10.0",
+    "@emotion/styled": "^11.10.4",
+    "@hookform/resolvers": "^2.9.8",
+    "@mui/icons-material": "^5.10.3",
+    "@mui/material": "^5.10.5",
+    "@reduxjs/toolkit": "^1.8.5",
+    "@signumjs/contracts": "^1.0.0-rc.32",
+    "@signumjs/core": "^1.0.0-rc.32",
+    "@signumjs/crypto": "^1.0.0-rc.32",
+    "@signumjs/http": "^1.0.0-rc.32",
+    "@signumjs/monitor": "^1.0.0-rc.32",
+    "@signumjs/util": "^1.0.0-rc.32",
+    "@signumjs/wallets": "^1.0.0-rc.32",
+    "clsx": "^1.2.1",
+    "copy-to-clipboard": "^3.3.2",
+    "date-fns": "^2.29.3",
+    "hashicon": "^0.3.0",
+    "lodash": "^4.17.21",
+    "next": "12.3.0",
+    "nprogress": "^0.2.0",
+    "react": "18.2.0",
+    "react-device-detect": "^2.2.2",
+    "react-dom": "18.2.0",
+    "react-hook-form": "^7.36.1",
+    "react-redux": "^8.0.2",
+    "swr": "^1.3.0",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "@types/node": "18.7.18",
+    "@types/nprogress": "^0.2.0",
+    "@types/react": "18.0.20",
+    "@types/react-dom": "18.0.6",
+    "eslint": "8.23.1",
+    "eslint-config-next": "12.3.0",
+    "typescript": "4.8.3"
+  }
+}
