@@ -32,6 +32,15 @@ export const TmgEcosystem: NextPage = () => {
                 siteUrl="https://wos.notallmine.net/"
               />
             </Grid>
+            
+              <Grid item xs={12} md={6} lg={4}>
+              <MediaCard
+                title="ShoutLoud!"
+                description="Decentralized news service"
+                imgUrl="/assets/ShoutLoudBanner.png"
+                siteUrl="https://deleterium.info/shoutloud/"
+              />
+            </Grid>
 
             <Grid item xs={12} md={6} lg={4}>
               <MediaCard
