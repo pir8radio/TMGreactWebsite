@@ -32,8 +32,17 @@ export const TmgEcosystem: NextPage = () => {
                 siteUrl="https://wos.notallmine.net/"
               />
             </Grid>
-            
-              <Grid item xs={12} md={6} lg={4}>
+
+            <Grid item xs={12} md={6} lg={4}>
+              <MediaCard
+                title="TMG Lotto"
+                description="A smart contract weekly lottery where all Signa incoming will be distributed as prize."
+                imgUrl="/assets/tmgLotto.webp"
+                siteUrl="https://deleterium.info/tmg-lotto/"
+              />
+            </Grid>
+
+            <Grid item xs={12} md={6} lg={4}>
               <MediaCard
                 title="ShoutLoud!"
                 description="Decentralized news service"
