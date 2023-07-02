@@ -1,14 +1,15 @@
 import { useRouter } from "next/router";
-import { useMemo } from "react";
 import { useAppDispatch, useAppSelector } from "@/states/hooks";
 import { useAccount } from "@/app/hooks/useAccount";
+import { useAccountBalance } from "@/app/hooks/useAccountBalance";
 import {
   requestWalletConnection,
   requestWalletDisconnection,
 } from "@/app/utils/requestWalletConnection";
 import { openExternalUrl } from "@/app/utils/openExternalUrl";
 import { actions, selectIsWalletConnected } from "@/app/states/appState";
-import { asRSAddress } from "@/app/utils/asRSAddress";
+import { formatAmount } from "@/app/utils/formatAmount";
+import { AccountAvatar } from "./components/AccountAvatar";
 import { Links } from "../links";
 
 import Link from "next/link";
@@ -25,23 +26,17 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ReportProblemIcon from "@mui/icons-material/ReportProblem";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 
-// @ts-ignore
-import hashicon from "hashicon";
 import styles from "./header.module.css";
 
 export const Header = () => {
   const { setIsOpenSidebar } = actions;
   const { asPath, push } = useRouter();
   const { accountId, publicKey } = useAccount();
+  const { availableBalance, tmgAvailableBalance } = useAccountBalance();
   const dispatch = useAppDispatch();
   const isWalletConnected = useAppSelector(selectIsWalletConnected);
 
   const openSideDrawer = () => dispatch(setIsOpenSidebar(true));
-
-  const iconUrl = useMemo(() => {
-    if (!accountId) return "";
-    return hashicon(accountId, { size: 24 }).toDataURL();
-  }, [accountId]);
 
   const shownContentDesktop = {
     width: "auto",
@@ -139,22 +134,32 @@ export const Header = () => {
                 direction="row"
                 alignItems="center"
                 p={1}
+                spacing={1}
                 sx={{
                   border: 1,
                   borderColor: "rgba(255,255,255,0.1)",
                   borderRadius: 2,
                 }}
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={iconUrl} alt="avatar-icon" width={24} height={24} />
+                <AccountAvatar />
 
-                <Typography
-                  fontWeight={500}
-                  variant="body2"
-                  sx={{ display: { xs: "none", md: "flex" }, ml: 1, mr: 3 }}
-                >
-                  {asRSAddress(accountId)}
-                </Typography>
+                <Tooltip title="Available SIGNA" arrow>
+                  <Chip
+                    variant="filled"
+                    color="success"
+                    label={formatAmount(availableBalance.getSigna()) + " SIGNA"}
+                    sx={{ fontWeight: 700 }}
+                  />
+                </Tooltip>
+
+                <Tooltip title="Available TMG" arrow>
+                  <Chip
+                    variant="filled"
+                    color="success"
+                    label={formatAmount(tmgAvailableBalance) + " TMG"}
+                    sx={{ fontWeight: 700 }}
+                  />
+                </Tooltip>
 
                 <Chip
                   color="secondary"
