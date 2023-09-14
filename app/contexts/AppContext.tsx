@@ -54,7 +54,7 @@ export const config: AppContextType = {
   Ledger: {
     Network: process.env.NEXT_PUBLIC_SIGNUM_NETWORK || "Signum",
     Explorer: "https://explorer.notallmine.net",
-    DefaultNode: "https://signawallet.notallmine.net",
+    DefaultNode: "https://europe3.signum.network",
   },
 };
 
